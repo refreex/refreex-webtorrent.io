@@ -12,7 +12,7 @@
     ]
   },
   "bugs": {
-    "url": "https://github.com/webtorrent/webtorrent.io/issues"
+    "url": "https://github.com/refreex/refreex-webtorrent.io/issues"
   },
   "dependencies": {
     "arch": "^2.0.0",

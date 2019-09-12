@@ -20,7 +20,7 @@ const config = require('../config')
 const secret = require('../secret')
 
 const DESKTOP_VERSION = config.desktopVersion
-const RELEASES_URL = 'https://github.com/webtorrent/webtorrent-desktop/releases/download'
+const RELEASES_URL = 'https://github.com/refreex/refreex-webtorrent-desktop/releases/download'
 
 const TELEMETRY_PATH = path.join(config.logPath, 'telemetry')
 const CRASH_REPORTS_PATH = path.join(config.logPath, 'crash-reports')
@@ -225,8 +225,8 @@ function serveUpdateAPI (app) {
       // Update is required. Send update JSON.
       // Response format docs: https://github.com/Squirrel/Squirrel.Mac#update-json-format
       res.status(200).send({
-        name: 'WebTorrent v' + DESKTOP_VERSION,
-        url: `${RELEASES_URL}/v${DESKTOP_VERSION}/WebTorrent-v${DESKTOP_VERSION}-darwin.zip`,
+        name: 'Refreex v' + DESKTOP_VERSION,
+        url: `${RELEASES_URL}/v${DESKTOP_VERSION}/Refreex-v${DESKTOP_VERSION}-darwin.zip`,
         version: DESKTOP_VERSION
       })
     } else {
