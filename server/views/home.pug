@@ -1,49 +1,17 @@
 extends layout
 
 block body
-  #hero
-    #progressBar
-    h1 Torrents on the <em>web</em>
-    #status.clearfix
-      #statusLeft
-        span.show-leech #{ 'Downloading ' }
-        span.show-seed #{ 'Seeding ' }
-        code: a#torrentLink(href='https://webtorrent.io/torrents/sintel.torrent') sintel.torrent
-        span.show-leech #{ ' from ' }
-        span.show-seed #{ ' to ' }
-        code#numPeers 0 peers
-        | #{ '. ' }
-      #statusRight
-        code#downloaded
-        | #{ ' of '}
-        code#total
-        | #{ ' — '}
-        span#remaining
-    #svgWrap
-      div.torrent-graph
-    #videoWrap
-      .video
-        .videoOverlay
-
-  .feature-block.sponsors
-    article
-      h3 Open Source Supporters
-      .flex-center
-        a(href='https://brave.com', rel='nofollow', target='_blank', class='sponsor')
-          img(src='/img/supporters/brave.png', alt='Brave Software')
-        <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CE7DT2QY&placement=webtorrentio" id="_carbonads_js"></script>
-
   .feature-block
     article
       h1.minimal Torrents on the <em>desktop</em>
       a(href='/desktop', title='WebTorrent Desktop')
-        img(src='/img/screenshot-player.png')
-      h2 The streaming torrent client for Mac, Windows, &amp; Linux
+        img(src='https://camo.githubusercontent.com/42570befe03a092dbf059566dc52463013bf083c/68747470733a2f2f692e6962622e636f2f6774684d44546e2f436170747572652e706e67')
+      h2 The streaming torrent app, focused in music and shared playlists. For Mac, Windows &amp; Linux
       div.featuredCenter
-        a.btn.large(href='/desktop') Get WebTorrent Desktop
+        a.btn.large(href='/desktop') Get Refreex Desktop
       p
-        | WebTorrent Desktop is for streaming torrents. Whether it's
-        | video from the
+        | Refreex Desktop is for streaming torrents. Whether it's
+        | an album from the
         = ' '
         a(href='https://archive.org') Internet Archive
         | , music from
@@ -54,12 +22,14 @@ block body
         a(href='https://librivox.org/') Librivox
         | , you can play it right away. You don't have to wait for it to finish downloading.
 
-      p WebTorrent Desktop is fast, free, non-commercial &amp; open source.
+      p Refreex Desktop is fast, free, non-commercial &amp; open source.
 
   .feature-block
     article
       :markdown
-        # What is WebTorrent?
+        # What is Refreex?
+
+        Refreex is a torrent-client based entirely on WebTorrent. The mission is bring to the people the advantages of a descentralized network for media like music.
 
         **WebTorrent** is a streaming torrent client for the **web browser** and the **desktop**.
 
@@ -73,14 +43,6 @@ block body
         Imagine a peer-to-peer YouTube where viewers help to host the site's
         content. By making BitTorrent easier to use, we can get more people to
         participate and take the first steps to re-decentralizing the Internet.
-
-        ## How do I try it out?
-
-        See WebTorrent in action on the Web at [Instant.io](https://instant.io).
-        Send a file to a friend using BitTorrent!
-
-        Or, install [WebTorrent Desktop](/desktop) for Mac, Windows, and Linux.
-        Try out a fast, lightweight, new torrent client today!
 
   .feature-block
     article
