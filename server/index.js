@@ -52,14 +52,14 @@ app.use(compress())
 // Use SSL
 app.use(function (req, res, next) {
   // Force SSL
-  if (config.isProd && req.protocol !== 'https') {
-    return res.redirect('https://' + (req.hostname || 'webtorrent.io') + req.url) // lgtm [js/server-side-unvalidated-url-redirection]
-  }
+  // if (config.isProd && req.protocol !== 'https') {
+  //   return res.redirect('https://' + (req.hostname || 'webtorrent.io') + req.url) // lgtm [js/server-side-unvalidated-url-redirection]
+  // }
 
-  // Redirect www to non-www
-  if (config.isProd && req.hostname === 'www.webtorrent.io') {
-    return res.redirect('https://webtorrent.io' + req.url) // lgtm [js/server-side-unvalidated-url-redirection]
-  }
+  // // Redirect www to non-www
+  // if (config.isProd && req.hostname === 'www.webtorrent.io') {
+  //   return res.redirect('https://webtorrent.io' + req.url) // lgtm [js/server-side-unvalidated-url-redirection]
+  // }
 
   // Use HTTP Strict Transport Security
   // Lasts 1 year, incl. subdomains, allow browser preload list
@@ -111,13 +111,13 @@ app.use(morgan(config.isProd ? 'combined' : 'dev', { immediate: !config.isProd }
 
 // Serve all the pug pages
 app.get('/', function (req, res) {
-  res.render('home', { rawTitle: 'WebTorrent - Streaming browser torrent client' })
+  res.render('home', { rawTitle: 'Refreex - Streaming browser torrent client' })
 })
 
 app.get('/desktop', function (req, res) {
   res.render('desktop', {
     cls: 'desktop',
-    rawTitle: 'WebTorrent Desktop - Streaming torrent app for Mac, Windows, and Linux',
+    rawTitle: 'Refreex - Streaming torrent app for Mac, Windows, and Linux',
     version: config.desktopVersion
   })
 })
