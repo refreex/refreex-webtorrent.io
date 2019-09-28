@@ -13,7 +13,8 @@ const { Remarkable } = require('remarkable')
 const config = require('../config')
 const desktopApi = require('./desktop-api')
 
-const PORT = Number(process.argv[2]) || 4000
+// const PORT = Number(process.argv[2]) || 4000
+const PORT = process.env.PORT || 4000
 
 const app = express()
 const server = http.createServer(app)
@@ -52,23 +53,23 @@ app.use(compress())
 // Use SSL
 app.use(function (req, res, next) {
   // Force SSL
-  // if (config.isProd && req.protocol !== 'https') {
-  //   return res.redirect('https://' + (req.hostname || 'refreex.io') + req.url) // lgtm [js/server-side-unvalidated-url-redirection]
-  // }
+  if (config.isProd && req.protocol !== 'https') {
+    return res.redirect('https://' + (req.hostname || 'refreex.io') + req.url) // lgtm [js/server-side-unvalidated-url-redirection]
+  }
 
   // Redirect www to non-www
-  // if (config.isProd && req.hostname === 'www.refreex.io') {
-  //   return res.redirect('https://refreex.io' + req.url) // lgtm [js/server-side-unvalidated-url-redirection]
-  // }
+  if (config.isProd && req.hostname === 'www.refreex.io') {
+    return res.redirect('https://refreex.io' + req.url) // lgtm [js/server-side-unvalidated-url-redirection]
+  }
 
   // Use HTTP Strict Transport Security
   // Lasts 1 year, incl. subdomains, allow browser preload list
-  // if (config.isProd) {
-  //   res.header(
-  //     'Strict-Transport-Security',
-  //     'max-age=31536000; includeSubDomains; preload'
-  //   )
-  // }
+  if (config.isProd) {
+    res.header(
+      'Strict-Transport-Security',
+      'max-age=31536000; includeSubDomains; preload'
+    )
+  }
 
   // Add cross-domain header for fonts, required by spec, Firefox, and IE.
   const extname = path.extname(req.url)
