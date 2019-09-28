@@ -59,9 +59,9 @@ function cronSummarizeTelemetry () {
 }
 
 function serve (app) {
-  serveTelemetryAPI(app)
-  serveCrashReportsAPI(app)
-  serveAnnouncementsAPI(app)
+  // serveTelemetryAPI(app)
+  // serveCrashReportsAPI(app)
+  // serveAnnouncementsAPI(app)
   serveUpdateAPI(app)
 }
 
