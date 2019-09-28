@@ -43,7 +43,7 @@ try { mkdirp.sync(CRASH_REPORTS_PATH) } catch (err) {}
  * This is a poor-man's cron-job. Not running in development by default to
  * avoid hitting Github's API too often.
  */
-if (config.isProd) cronSummarizeTelemetry()
+// if (config.isProd) cronSummarizeTelemetry()
 
 function cronSummarizeTelemetry () {
   // Run immediately
