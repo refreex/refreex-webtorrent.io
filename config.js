@@ -8,13 +8,13 @@ exports.isProd = process.env.NODE_ENV === 'production'
 /**
  * WebTorrent Desktop version (used by auto-updater, landing page, etc.)
  */
-exports.desktopVersion = '0.20.0'
+exports.desktopVersion = '0.20.1'
 
 /**
  * Path to store log files
  */
 exports.logPath = process.env.NODE_ENV === 'production'
-  ? '/home/feross/www/log/webtorrent.io'
+  ? '/home/feross/www/log/refreex.io'
   : path.join(__dirname, 'logs')
 
 let secret

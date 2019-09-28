@@ -1,10 +1,10 @@
 {
-  "name": "webtorrent.io",
+  "name": "refreex.io",
   "version": "0.0.1",
   "author": {
-    "name": "WebTorrent, LLC",
-    "email": "feross@webtorrent.io",
-    "url": "https://webtorrent.io"
+    "name": "Refreex, LLC",
+    "email": "lucas.recoaro@gmail.com",
+    "url": "https://refreex.io"
   },
   "browserify": {
     "transform": [
@@ -51,7 +51,7 @@
     "stylus": "^0.54.0",
     "watchify": "^3.1.2"
   },
-  "homepage": "https://webtorrent.io",
+  "homepage": "https://refreex.io",
   "husky": {
     "hooks": {
       "pre-push": "npm test"
@@ -72,7 +72,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git://github.com/webtorrent/webtorrent.io.git"
+    "url": "git://github.com/refreex/refreex-webtorrent.io.git"
   },
   "scripts": {
     "build": "npm run build-css && npm run build-js",

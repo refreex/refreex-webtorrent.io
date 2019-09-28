@@ -5,7 +5,7 @@
 [standard-image]: https://img.shields.io/badge/code_style-standard-brightgreen.svg
 [standard-url]: https://standardjs.com
 
-### The website for the [WebTorrent](https://webtorrent.io) project
+### The website for the [Refreex](https://refreex.io) project
 
 ## Developer Notes
 
@@ -15,8 +15,8 @@
 ### Log folders
 
 For production, the following folders are required to exist with chmod `777`.
-- $HOME/www/log/webtorrent.io/crash-reports
-- $HOME/www/log/webtorrent.io/telemetry
+- $HOME/www/log/refreex-webtorrent.io/crash-reports
+- $HOME/www/log/refreex-webtorrent.io/telemetry
 
 For local development (not using `NODE_ENV="production"` environment variable), these folders will be created at:
 
@@ -25,4 +25,4 @@ For local development (not using `NODE_ENV="production"` environment variable), 
 
 ## license
 
-MIT. Copyright (c) [WebTorrent, LLC](https://webtorrent.io).
+MIT. Copyright (c) [Refreex, LLC](https://refreex.io).
