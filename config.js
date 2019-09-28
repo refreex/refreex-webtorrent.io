@@ -17,7 +17,7 @@ exports.logPath = process.env.NODE_ENV === 'production'
   ? '/home/feross/www/log/refreex.io'
   : path.join(__dirname, 'logs')
 
-let secret = 'asd'
+const secret = 'asd'
 // try { secret = require('./secret') } catch (err) {}
 
 /**
