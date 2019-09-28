@@ -17,8 +17,8 @@ exports.logPath = process.env.NODE_ENV === 'production'
   ? '/home/feross/www/log/refreex.io'
   : path.join(__dirname, 'logs')
 
-let secret
-try { secret = require('./secret') } catch (err) {}
+let secret = '';
+// try { secret = require('./secret') } catch (err) {}
 
 /**
  * Discord IRC bot credentials
