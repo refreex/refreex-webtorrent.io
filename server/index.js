@@ -57,9 +57,9 @@ app.use(function (req, res, next) {
   // }
 
   // Redirect www to non-www
-  if (config.isProd && req.hostname === 'www.refreex.io') {
-    return res.redirect('https://refreex.io' + req.url) // lgtm [js/server-side-unvalidated-url-redirection]
-  }
+  // if (config.isProd && req.hostname === 'www.refreex.io') {
+  //   return res.redirect('https://refreex.io' + req.url) // lgtm [js/server-side-unvalidated-url-redirection]
+  // }
 
   // Use HTTP Strict Transport Security
   // Lasts 1 year, incl. subdomains, allow browser preload list
