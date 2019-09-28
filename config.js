@@ -17,13 +17,13 @@ exports.logPath = process.env.NODE_ENV === 'production'
   ? '/home/feross/www/log/refreex.io'
   : path.join(__dirname, 'logs')
 
-let secret
-try {
-  secret = require('./secret')
-  console.log(123, secret)
-} catch (err) {
-  console.log(`secret: ${err}`)
-}
+const secret = 123
+// try {
+//   secret = require('./secret')
+//   console.log(123, secret)
+// } catch (err) {
+//   console.log(`secret: ${err}`)
+// }
 
 /**
  * Discord IRC bot credentials
