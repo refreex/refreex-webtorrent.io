@@ -2,7 +2,7 @@ node_modules
 logs
 .DS_Store
 
-secret/*
+# secret/*
 !secret/index-sample.js
 
 static/bundle.js

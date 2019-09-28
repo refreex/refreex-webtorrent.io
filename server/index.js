@@ -1,7 +1,7 @@
 require('./rollbar')
 
 const compress = require('compression')
-// const cors = require('cors')
+const cors = require('cors')
 const express = require('express')
 const highlight = require('highlight.js')
 const http = require('http')
@@ -52,53 +52,53 @@ app.use(compress())
 // Use SSL
 app.use(function (req, res, next) {
   // Force SSL
-  // if (config.isProd && req.protocol !== 'https') {
-  //   return res.redirect('https://' + (req.hostname || 'refreex.io') + req.url) // lgtm [js/server-side-unvalidated-url-redirection]
-  // }
+  if (config.isProd && req.protocol !== 'https') {
+    return res.redirect('https://' + (req.hostname || 'refreex.io') + req.url) // lgtm [js/server-side-unvalidated-url-redirection]
+  }
 
-  // // Redirect www to non-www
-  // if (config.isProd && req.hostname === 'www.refreex.io') {
-  //   return res.redirect('https://refreex.io' + req.url) // lgtm [js/server-side-unvalidated-url-redirection]
-  // }
+  // Redirect www to non-www
+  if (config.isProd && req.hostname === 'www.refreex.io') {
+    return res.redirect('https://refreex.io' + req.url) // lgtm [js/server-side-unvalidated-url-redirection]
+  }
 
-  // // Use HTTP Strict Transport Security
-  // // Lasts 1 year, incl. subdomains, allow browser preload list
-  // if (config.isProd) {
-  //   res.header(
-  //     'Strict-Transport-Security',
-  //     'max-age=31536000; includeSubDomains; preload'
-  //   )
-  // }
+  // Use HTTP Strict Transport Security
+  // Lasts 1 year, incl. subdomains, allow browser preload list
+  if (config.isProd) {
+    res.header(
+      'Strict-Transport-Security',
+      'max-age=31536000; includeSubDomains; preload'
+    )
+  }
 
-  // // Add cross-domain header for fonts, required by spec, Firefox, and IE.
-  // const extname = path.extname(req.url)
-  // if (['.eot', '.ttf', '.otf', '.woff'].indexOf(extname) >= 0) {
-  //   res.header('Access-Control-Allow-Origin', '*')
-  // }
+  // Add cross-domain header for fonts, required by spec, Firefox, and IE.
+  const extname = path.extname(req.url)
+  if (['.eot', '.ttf', '.otf', '.woff'].indexOf(extname) >= 0) {
+    res.header('Access-Control-Allow-Origin', '*')
+  }
 
-  // // Prevents IE and Chrome from MIME-sniffing a response. Reduces exposure to
-  // // drive-by download attacks on sites serving user uploaded content.
-  // res.header('X-Content-Type-Options', 'nosniff')
+  // Prevents IE and Chrome from MIME-sniffing a response. Reduces exposure to
+  // drive-by download attacks on sites serving user uploaded content.
+  res.header('X-Content-Type-Options', 'nosniff')
 
-  // // Prevent rendering of site within a frame.
-  // res.header('X-Frame-Options', 'DENY')
+  // Prevent rendering of site within a frame.
+  res.header('X-Frame-Options', 'DENY')
 
-  // // Enable the XSS filter built into most recent web browsers. It's usually
-  // // enabled by default anyway, so role of this headers is to re-enable for this
-  // // particular website if it was disabled by the user.
-  // res.header('X-XSS-Protection', '1; mode=block')
+  // Enable the XSS filter built into most recent web browsers. It's usually
+  // enabled by default anyway, so role of this headers is to re-enable for this
+  // particular website if it was disabled by the user.
+  res.header('X-XSS-Protection', '1; mode=block')
 
-  // // Force IE to use latest rendering engine or Chrome Frame
-  // res.header('X-UA-Compatible', 'IE=Edge,chrome=1')
+  // Force IE to use latest rendering engine or Chrome Frame
+  res.header('X-UA-Compatible', 'IE=Edge,chrome=1')
 
-  // next()
+  next()
 })
 
 // Serve the demo torrent (Sintel)
 // Enable CORS preflight, and cache it for 1 hour. This is necessary to support
 // requests from another domain with the "Range" HTTP header.
-// app.options('/torrents/*', cors({ maxAge: 60 * 60 }))
-// app.get('/torrents/*', cors(), express.static(path.join(__dirname, '../static')))
+app.options('/torrents/*', cors({ maxAge: 60 * 60 }))
+app.get('/torrents/*', cors(), express.static(path.join(__dirname, '../static')))
 
 // Serve static resources
 app.use(express.static(path.join(__dirname, '../static')))
@@ -111,7 +111,7 @@ app.use(morgan(config.isProd ? 'combined' : 'dev', { immediate: !config.isProd }
 
 // Serve all the pug pages
 app.get('/', function (req, res) {
-  res.render('home', { rawTitle: 'Refreex - Streaming music torrent client' })
+  res.render('home', { rawTitle: 'Refreex - Streaming browser torrent client' })
 })
 
 app.get('/desktop', function (req, res) {
@@ -154,7 +154,7 @@ app.get('*', function (req, res) {
   })
 })
 
-// if (global.rollbar) app.use(global.rollbar.errorHandler())
+if (global.rollbar) app.use(global.rollbar.errorHandler())
 
 // Handle 500 errors
 app.use(function (err, req, res, next) {
