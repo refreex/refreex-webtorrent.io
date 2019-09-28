@@ -18,9 +18,9 @@ exports.logPath = process.env.NODE_ENV === 'production'
   : path.join(__dirname, 'logs')
 
 let secret
-try { 
-      secret = require('./secret') 
-      console.log(123, secret) 
+try {
+  secret = require('./secret')
+  console.log(123, secret)
 } catch (err) {
   console.log(`secret: ${err}`)
 }
